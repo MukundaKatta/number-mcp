@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.MukundaKatta/number",
+  "description": "MCP server: format numbers as currency, percent, compact (1.2k), or locale-aware decimal.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/MukundaKatta/number-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://github.com/MukundaKatta/number-mcp",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mukundakatta/number-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
