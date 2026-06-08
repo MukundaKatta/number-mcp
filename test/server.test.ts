@@ -38,3 +38,28 @@ test('fraction digit control', () => {
     '3.14',
   );
 });
+
+test('rejects non-finite values', () => {
+  assert.throws(() => formatNumber({ value: NaN }), /finite number/);
+  assert.throws(() => formatNumber({ value: Infinity }), /finite number/);
+  assert.throws(() => formatNumber({ value: -Infinity }), /finite number/);
+});
+
+test('rejects non-number values', () => {
+  assert.throws(
+    () => formatNumber({ value: '5' as unknown as number }),
+    /finite number/,
+  );
+});
+
+test('throws on invalid locale', () => {
+  assert.throws(() => formatNumber({ value: 1, locale: 'not a locale!!' }), RangeError);
+});
+
+test('throws when min fraction digits exceed max', () => {
+  assert.throws(
+    () =>
+      formatNumber({ value: 1, minimum_fraction_digits: 5, maximum_fraction_digits: 2 }),
+    RangeError,
+  );
+});

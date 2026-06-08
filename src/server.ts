@@ -27,6 +27,9 @@ export interface FormatOpts {
 }
 
 export function formatNumber(opts: FormatOpts): string {
+  if (typeof opts.value !== 'number' || !Number.isFinite(opts.value)) {
+    throw new TypeError('value must be a finite number');
+  }
   const style = opts.style ?? 'decimal';
   const locale = opts.locale ?? 'en-US';
   const intlOpts: Intl.NumberFormatOptions = {};
